@@ -1,4 +1,4 @@
-# web-app-front-2
+# sv_chat_app_front
 
 ## Project setup
 ```
