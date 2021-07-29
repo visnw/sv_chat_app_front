@@ -8,7 +8,19 @@ const routes = [
     path: "/chatApp",
     name: "chatApp",
     component: () =>
-      import("../views/main-page.vue"),
+      import("../views/main_page/main-page.vue"),
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: () =>
+      import("../views/signup/signup.vue"),
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () =>
+      import("../views/login/login.vue"),
   },
 ];
 
