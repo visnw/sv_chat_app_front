@@ -19,7 +19,7 @@ export default {
         userData['fullname'] = this.userFullName
         userData['username'] = this.userName
         userData['password'] = this.userPassword
-        axios.post("https://jhrins29hb.execute-api.ap-south-1.amazonaws.com/dev/chatsap/signUp", { body:userData});
+        axios.post("https://jhrins29hb.execute-api.ap-south-1.amazonaws.com/dev/chatsapp/signUp", userData);
     }
   }
 }
