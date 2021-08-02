@@ -5,10 +5,16 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/chatApp",
-    name: "chatApp",
+    path: "/",
+    name: "signin",
     component: () =>
-      import("../views/main-page.vue"),
+      import("../components/signin/signin.vue"),
+  },
+  {
+    path: "/chat_app",
+    name: "main_page",
+    component: () =>
+      import("../views/main_page/main_page.vue"),
   },
 ];
 

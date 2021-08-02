@@ -109,7 +109,7 @@
       </v-col>
     </v-row>
 </template>
-<script src="./mainPage.js"></script>
+<script src="./main_page.js"></script>
 <style scoped>
 .pc_background {
   background-image: url("~@/assets/pc_background.png");
