@@ -15,7 +15,7 @@
                     solo-inverted
                 ></v-text-field>
             </v-card-text>
-            <v-card-text class="pb-0">
+            <v-card-text>
                 <v-text-field
                     label="Enter Password"
                     dense
@@ -28,14 +28,14 @@
             </v-card-text>
             <v-card-text class="boxCenter">
                 <v-btn tile color="#4fb68d" dark @click="handle_login">
-                  <h3>LOGIN</h3>
+                 LOGIN
                 </v-btn>
             </v-card-text>
-            <v-card-text class="boxCenter">
-                <h4 class="font-weight-light blue--text pointer">
+            <div class="boxCenter pb-3">
+                <h4 class="font-weight-light blue--text pointer" @click="open_signup">
                     New Here? Signup.
                 </h4>
-            </v-card-text>
+            </div>
         </v-card>
         <v-card width="300" height="500" v-if="$store.state.signup">
             <v-card-title style="display:flex; flex-flow:column;">
@@ -77,7 +77,7 @@
                     label="Enter User Name"
                     dense
                     flat
-                    v-model="user_name"
+                    v-model="username"
                     hide-details
                     solo-inverted
                 ></v-text-field>
