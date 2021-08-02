@@ -1,5 +1,8 @@
 export const base_url = "http://localhost:8080/";
+
+export const context_url = base_url + "dev/chatsapp";
+
 export const app_end_points =  {
-    signup : base_url + "dev/chatsapp/signUp",
-    login : base_url + "dev/chatsapp/logIn",
+    signup : context_url + "/signUp",
+    login : context_url + "/logIn",
 }

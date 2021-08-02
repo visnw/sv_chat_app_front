@@ -109,7 +109,7 @@
       </v-col>
     </v-row>
 </template>
-<script src="./main_page.js"></script>
+<script src="./chatPage.js"></script>
 <style scoped>
 .pc_background {
   background-image: url("~@/assets/pc_background.png");
