@@ -1,5 +1,5 @@
 import router from "../../router/chatRouter"
-import serviceCall from "../../service/ServiceCall"
+import apiService from "../../service/apiService"
 
 export default {
   data: () => {
@@ -22,7 +22,7 @@ export default {
       user_data['username'] = this.username
       user_data['password'] = this.user_password
 
-      serviceCall.callService('signup', user_data).then((r)=>{
+      apiService.callService('signup', user_data).then((r)=>{
         router.push('/chats');
         console.log(r)
       });

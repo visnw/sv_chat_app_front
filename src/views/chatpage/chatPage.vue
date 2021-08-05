@@ -9,9 +9,6 @@
               :key="item.header"
               v-text="item.header"
               ></v-subheader>
-
-              
-
               <v-list-item
               v-else
               :key="item.title"

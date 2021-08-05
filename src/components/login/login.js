@@ -1,4 +1,5 @@
 import router from "../../router/chatRouter"
+import apiService from "../../service/apiService"
 
 export default {
   data: () => {
@@ -19,6 +20,13 @@ export default {
         password: this.user_password
       }
       console.log(login_data)
+      apiService.callService("login", login_data).then(response => {
+        if(response.isAuthenticated){
+          // jwt {vis sdtasg345}
+          // 
+        }
+
+      })
       // let { resp } = await axios.get(app_end_points.login, login_data)
       router.push('/chats')
     },

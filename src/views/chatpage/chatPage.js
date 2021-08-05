@@ -1,4 +1,5 @@
 import axios from "axios";
+import apiService from "../../service/apiService";
 export default {
   data: () => {
     return {
@@ -61,12 +62,15 @@ export default {
           "sec-fetch-dest": "empty",
           "accept-encoding": "gzip, deflate, br",
           "accept-language": "en-US,en;q=0.9,hi;q=0.8"
-      }
+        }
       }
       )
       .then((r)=>{
         console.log(r)
       })
      }
+  },
+  mounted: () => {
+    apiService.callService("getMessage", {"chat_id" : "8906732234"});
   }
 }

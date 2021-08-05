@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Vuex from 'vuex'
+// import apiService from "../service/apiService"
 
 Vue.use(VueRouter);
 Vue.use(Vuex)
@@ -25,7 +26,7 @@ const routes = [
   },
   {
     path: "/chats",
-    name: "main_page",
+    name: "chatPage",
     meta: {
       requiresAuth: true
     },
@@ -44,20 +45,19 @@ router.beforeEach((to, from, next) => {
   console.log(to);
   console.log(from);
 
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    // this route requires auth, check if logged in
-    // if not, redirect to login page.
-    console.log("checking aurthentication");
+  // if (to.matched.some(record => record.meta.requiresAuth)) {
+  //   // this route requires auth, check if logged in
+  //   // if not, redirect to login page.
+  //   console.log("checking aurthentication");
     store.state.isLoggedIn = true;
-
-    if (!store.state.isLoggedIn) {
-      next({ name: 'login' })
-    } else {
-      next() // go to wherever I'm going
-    }
-  } else {
+  //   if (!store.state.isLoggedIn) {
+  //     next({ name: 'login' })
+  //   } else {
+  //     next() // go to wherever I'm going
+  //   }
+  // } else {
     next() // does not require auth, make sure to always call next()!
-  }
+  // }
 })
 
 
