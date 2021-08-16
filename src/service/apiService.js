@@ -1,6 +1,6 @@
 import axios from "axios";
 import { app_end_points } from "../configs/endpoints"
-// import router from "../router/chatRouter"
+import router from "../router/chatRouter"
 
 export const axoisclient = axios.create({
     headers: {
@@ -22,6 +22,7 @@ export default {
         axoisclient.post(url, paramMap).then(response => {
           if(response.data.data == 'need_to_login'){
             alert("need to login");
+            router.push('/login');
           } else {
             resolve(response.data);
           }

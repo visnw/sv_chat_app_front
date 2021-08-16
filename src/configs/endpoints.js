@@ -7,4 +7,5 @@ export const app_end_points =  {
     login : context_url + "/login",
     chats : context_url + "/chats",
     getMessage : context_url + "/getMessage",
+    sendMessage : context_url + "/sendMessage",
 }

@@ -3,24 +3,22 @@
       <v-col cols="12" sm="4">
         <v-card outlined height="100%">
           <v-list >
-            <template v-for="(item, index) in items">
-              <v-subheader
-              v-if="item.header"
-              :key="item.header"
-              v-text="item.header"
+            <v-subheader
+              :key="chatheader"
+              v-text="chatheader"
               ></v-subheader>
+            <template v-for="(item, index) in items">
               <v-list-item
-              v-else
-              :key="item.title"
+              :key="item.name"
               style="cursor: pointer"
               >
                 <v-list-item-avatar>
-                <v-img :src="item.avatar"></v-img>
+                <v-img :src="item.profileUrl"></v-img>
                 </v-list-item-avatar>
 
                 <v-list-item-content
                 @click="openChat(item)">
-                <v-list-item-title v-html="item.title"></v-list-item-title>
+                <v-list-item-title v-html="item.name"></v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
               <v-divider
@@ -37,7 +35,7 @@
           <v-row class="ma-0" style="border: thin solid rgba(0, 0, 0, 0.12); border-radius: 4px; height:100%">
             <v-col cols="12" style="display: flex; flex-direction: column;" class="pc_background">
               
-              <v-row class="ma-0" style="height: 100%; display: flex; flex-direction: column">
+              <v-row class="ma-0" v-show="isChating" style="height: 100%; display: flex; flex-direction: column">
                   <v-card flat>
                     <v-card-title class="black--text">
                       <v-avatar size="56">
@@ -56,7 +54,7 @@
                   <v-list class="transparent" >
                     <template v-for="(message) in messages" >
                       <v-list-item :key="message.id" style="cursor: pointer">
-                        <v-row v-if="message.isReceived">
+                        <v-row v-if="message.owner != userId">
                           <v-chip
                             class="ma-2"
                             color="green"
@@ -80,20 +78,22 @@
                   </v-list>
                 </v-col>
               </v-row>
-              <v-row class="ma-0">
+              <v-row class="ma-0" v-show="isChating">
                 <v-text-field
                   placeholder="Type any message ..."
                   outlined
                   flat
                   dense
                   filled
+                  v-model="messageText"
                   rounded
+                  @keydown="handleSend"
                   hide-details="auto"
                 ></v-text-field>
                 <v-btn
                 icon
                 large
-                @click="signUp()"
+                @click="sendMessage()"
                 >
                   <v-icon color="primary">mdi-send</v-icon>
                 </v-btn>
@@ -110,6 +110,7 @@
 <style scoped>
 .pc_background {
   background-image: url("~@/assets/pc_background.png");
+  background-size: cover;
 }
 .transparent {
   background-color: transparent!important;
